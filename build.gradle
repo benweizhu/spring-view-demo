@@ -11,5 +11,6 @@ dependencies{
     compile 'org.springframework:spring-webmvc:3.2.5.RELEASE'
     compile 'org.hibernate:hibernate-validator:5.0.1.Final'
     compile 'org.slf4j:slf4j-api:1.7.5'
+    compile 'jstl:jstl:1.2'
     testCompile 'junit:junit:4.11'
 }

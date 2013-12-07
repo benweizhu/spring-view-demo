@@ -2,6 +2,7 @@ package me.zeph.springview.demo.controller;
 
 import me.zeph.springview.demo.domain.User;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -22,10 +23,15 @@ public class IndexController {
 	}
 
 	@RequestMapping(value = "indexConfirm", method = POST)
-	public String commit(@Valid User user, Errors errors) {
+	public String commit(@Valid User user, Errors errors, Model model) {
 		if (errors.hasErrors()) {
 			return INDEX;
 		}
+		model.addAttribute("name", user.getName());
+		model.addAttribute("gender", user.getGender());
+		model.addAttribute("channels", user.getChannels());
+		model.addAttribute("server", user.getServer());
+		model.addAttribute("agree", user.isAgree());
 		return INDEX_CONFIRMATION;
 	}
 }

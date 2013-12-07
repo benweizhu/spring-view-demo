@@ -4,6 +4,8 @@ import me.zeph.springview.demo.domain.User;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.ui.ExtendedModelMap;
+import org.springframework.validation.BeanPropertyBindingResult;
+import org.springframework.validation.DirectFieldBindingResult;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
@@ -32,8 +34,11 @@ public class IndexControllerTest {
 		User user = new User();
 		user.setName("benwei");
 		//when
-		String viewName = indexController.commit(user, null);
+		ExtendedModelMap model = new ExtendedModelMap();
+		BeanPropertyBindingResult errors = new BeanPropertyBindingResult("name", "user");
+		String viewName = indexController.commit(user, errors, model);
 		//then
-		assertThat(viewName, is("indexConfirm"));
+		assertThat(viewName, is("index-confirmation"));
+		assertThat((String) model.get("name"), is("benwei"));
 	}
 }
