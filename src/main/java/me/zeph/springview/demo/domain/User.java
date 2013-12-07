@@ -1,10 +1,11 @@
 package me.zeph.springview.demo.domain;
 
-import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 public class User {
 
-	@NotNull
+	@NotEmpty
 	private String name;
 	private String gender;
 	private String password;

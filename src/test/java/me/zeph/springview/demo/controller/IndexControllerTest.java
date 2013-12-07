@@ -31,11 +31,9 @@ public class IndexControllerTest {
 		//given
 		User user = new User();
 		user.setName("benwei");
-		ExtendedModelMap modelMap = new ExtendedModelMap();
 		//when
-		String viewName = indexController.commit(user, modelMap);
+		String viewName = indexController.commit(user, null);
 		//then
 		assertThat(viewName, is("indexConfirm"));
-		assertThat((String) modelMap.get("name"), is("benwei"));
 	}
 }
