@@ -18,6 +18,12 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
+    <!-- bind your messages.properties -->
+    <bean class="org.springframework.context.support.ResourceBundleMessageSource"
+          id="messageSource">
+        <property name="basename" value="messages" />
+    </bean>
+
     <mvc:annotation-driven/>
 
 

@@ -7,6 +7,7 @@
 <body>
 <h1>Spring MVC View Demo</h1>
 <form:form commandName="user" method="post" action="indexConfirm">
+    <form:errors path="*"/>
     <div>
         <label for="name">name :</label>
         <form:input path="name" id="name"/>

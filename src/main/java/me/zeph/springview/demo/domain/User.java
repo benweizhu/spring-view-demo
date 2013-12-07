@@ -8,6 +8,7 @@ public class User {
 	@NotEmpty
 	private String name;
 	private String gender;
+	@NotEmpty
 	private String password;
 	private boolean agree;
 	private String server;
